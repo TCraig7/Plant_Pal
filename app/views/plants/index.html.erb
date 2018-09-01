@@ -1,0 +1,8 @@
+<h1>Your Plants</h1>
+
+<% @plants.each do |plant| %>
+  <ul>
+    <li>Species: <%= plant.species %></li>
+    <li>Nickname: <%= plant.nickname %></li>
+  </ul>
+<% end %>
