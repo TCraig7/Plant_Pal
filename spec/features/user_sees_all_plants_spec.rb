@@ -11,7 +11,7 @@ describe 'user sees all plants' do
       expect(page).to have_content("Species: #{plant_1.species}")
       expect(page).to have_content("Nickname: #{plant_1.nickname}")
       expect(page).to have_content("Species: #{plant_2.species}")
-      expect(page).to have_content("Nickname: #{plant_2.nickname}")      
+      expect(page).to have_content("Nickname: #{plant_2.nickname}")
     end
   end
 end
