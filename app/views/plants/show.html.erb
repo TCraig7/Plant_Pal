@@ -1,6 +1,6 @@
 <h1><%= @plant.species %></h1>
-<p><%= @plant.nickname %></p>
-<p><%= @plant.amount_of_water %></p>
-<p><%= @plant.amount_of_sun %></p>
-<p><%= @plant.created_at %></p>
+<p>Nickname: <%= @plant.nickname %></p>
+<p>Amount of Water: <%= @plant.amount_of_water %></p>
+<p>Amount of Sun: <%= @plant.amount_of_sun %></p>
+<p>Created: <%= @plant.created_at %></p>
 <%= link_to "<< Back to Plants Overview", plants_path %>
