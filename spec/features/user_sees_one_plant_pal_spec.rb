@@ -4,6 +4,8 @@ describe 'user sees one plant pal' do
   describe 'user links from plants index page' do
     before(:each) do
       @plant1 = Plant.create(species: 'Philodendron Brasil', nickname: 'Steve', amount_of_water: 2, amount_of_sun: 1)
+      @note1 = @plant1.notes.create(content: "Needs to be watered every week.")
+      @note2 = @plant1.notes.create(content: "Does not like direct sunlight, do not put on windowsill.")
     end
 
     it 'should display information for one plant' do
@@ -20,6 +22,10 @@ describe 'user sees one plant pal' do
       expect(page).to have_content(@plant1.amount_of_water)
       expect(page).to have_content(@plant1.amount_of_sun)
       expect(page).to have_content(@plant1.created_at)
+      expect(page).to have_content(@note1.content)
+      expect(page).to have_content(@note1.created_at)
+      expect(page).to have_content(@note2.content)
+      expect(page).to have_content(@note2.created_at)
     end
 
     it "should delete plant when 'delete' is clicked" do
