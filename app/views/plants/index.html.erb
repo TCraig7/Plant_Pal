@@ -5,6 +5,6 @@
   <ul id='plants'>
     <li>Species: <%= plant.species %></li>
     <li>Nickname: <%= plant.nickname %></li>
-    <li><%= link_to "More Details", plant_path(plant) %></li>
+    <li class="more-details-#{plant.id}"><%= link_to "More Details", plant_path(plant) %></li>
   </ul>
 <% end %>
