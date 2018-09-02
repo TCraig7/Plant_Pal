@@ -1,0 +1,10 @@
+<h1>Your Plants</h1>
+<%= link_to "Create a New Plant Pal", new_plant_path %>
+
+<% @plants.each do |plant| %>
+  <ul id='plants'>
+    <li>Species: <%= plant.species %></li>
+    <li>Nickname: <%= plant.nickname %></li>
+    <li class="more-details-#{plant.id}"><%= link_to "More Details", plant_path(plant) %></li>
+  </ul>
+<% end %>

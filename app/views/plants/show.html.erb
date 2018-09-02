@@ -1,0 +1,8 @@
+<h1><%= @plant.species %></h1>
+<%= link_to "<< Back to Plants Overview", plants_path %>
+<p>Nickname: <%= @plant.nickname %></p>
+<p>Amount of Water: <%= @plant.amount_of_water %></p>
+<p>Amount of Sun: <%= @plant.amount_of_sun %></p>
+<p>Created: <%= @plant.created_at %></p>
+<p><%= link_to "Edit", edit_plant_path(@plant) %></p>
+<p><%= link_to "Delete Plant Pal", plant_path(@plant), method: :delete, data: {confirm: "Are you sure you want to delete this plant?"} %></p>
