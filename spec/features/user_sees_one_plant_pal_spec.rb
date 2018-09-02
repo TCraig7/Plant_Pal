@@ -51,5 +51,18 @@ describe 'user sees one plant pal' do
 
       expect(page).to have_content("Nickname: Smalls")
     end
+
+    describe 'it should fill in a note form' do
+      it "should display the note on the plant show page" do
+        visit plant_path(@plant1)
+
+        fill_in "note[content]", with: "Rotate pot so leaves grow evenly."
+        click_on "Submit"
+
+        expect(current_path).to eq(plant_path(@plant1))
+        expect(page).to have_content("New Note:")
+        expect(page).to have_content("Rotate pot so leaves grow evenly.")
+      end
+    end
   end
 end

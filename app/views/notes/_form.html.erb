@@ -1,0 +1,11 @@
+<h3>New Note:</h3>
+
+<%= form_for [ @plant, @note ] do |f| %>
+  <p>
+    <%= f.label :content %><br/>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>
