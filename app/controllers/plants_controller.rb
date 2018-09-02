@@ -1,10 +1,11 @@
 class PlantsController < ApplicationController
+  before_action :set_params, only: [:show, :destroy, :edit, :update]
+
   def index
     @plants = Plant.all
   end
 
   def show
-    @plant = Plant.find(params[:id])
   end
 
   def new
@@ -22,8 +23,17 @@ class PlantsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @plant.update(plant_params)
+
+    redirect_to plant_path(@plant)
+  end
+
   def destroy
-    Plant.destroy(params[:id])
+    @plant.destroy
     redirect_to plants_path
   end
 
@@ -31,5 +41,9 @@ class PlantsController < ApplicationController
 
   def plant_params
     params.require(:plant).permit(:species, :nickname, :amount_of_water, :amount_of_sun)
+  end
+
+  def set_params
+    @plant = Plant.find(params[:id])
   end
 end

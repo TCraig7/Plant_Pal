@@ -32,5 +32,18 @@ describe 'user sees one plant pal' do
       expect(page).to have_content(@plant1.species)
       expect(page).to_not have_content(plant2.species)
     end
+
+    it "should edit a plant when 'edit' is clicked" do
+      visit plant_path(@plant1)
+      click_link 'Edit'
+
+      expect(current_path).to eq(edit_plant_path(@plant1))
+
+      fill_in "plant[nickname]",  with: "Smalls"
+save_and_open_page
+      click_on 'Update Plant'
+
+      expect(page).to have_content("Nickname: Smalls")
+    end
   end
 end
