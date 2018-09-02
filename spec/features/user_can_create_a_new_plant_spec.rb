@@ -15,7 +15,6 @@ describe "user creates a new plant" do
         fill_in "plant[amount_of_sun]",  with: 3
 
         click_on "Create Plant"
-        save_and_open_page
 
         expect(page).to have_content("Golden Cactus")
         expect(page).to have_content("Spike")
