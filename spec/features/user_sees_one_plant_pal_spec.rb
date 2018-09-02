@@ -40,7 +40,7 @@ describe 'user sees one plant pal' do
       expect(current_path).to eq(edit_plant_path(@plant1))
 
       fill_in "plant[nickname]",  with: "Smalls"
-save_and_open_page
+
       click_on 'Update Plant'
 
       expect(page).to have_content("Nickname: Smalls")
