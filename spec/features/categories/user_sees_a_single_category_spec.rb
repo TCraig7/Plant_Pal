@@ -7,7 +7,7 @@ describe 'user sees one category' do
       category = plant.categories.create(name: "shade loving")
 
       visit plant_path(plant)
-      save_and_open_page
+
       click_on "shade loving"
 
       expect(current_path).to eq(category_path(category))

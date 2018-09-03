@@ -22,5 +22,11 @@ describe 'user sees all plants' do
 
       expect(page).to have_link("Create a New Plant")
     end
+
+    it "can click link to see all categories" do
+      visit plants_path
+
+      expect(page).to have_link("See All Categories")
+    end
   end
 end
