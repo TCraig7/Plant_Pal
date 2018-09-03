@@ -12,4 +12,16 @@ describe Plant, type: :model do
     it {should have_many(:plant_categories)}
     it {should have_many(:categories).through(:plant_categories)}
   end
+
+  describe 'instance methods' do
+    describe '#category_list' do
+      it "turns associated categories into a string" do
+        plant = Plant.create(species: "Golden Cactus", nickname: "Spike", amount_of_water: 1, amount_of_sun: 3)
+        category1 = plant.categories.create(name: "Sun Loving")
+        category2 = plant.categories.create(name: "Guest Room")
+
+        expect(plant.category_list).to eq("Sun Loving, Guest Room")
+      end
+    end
+  end
 end
