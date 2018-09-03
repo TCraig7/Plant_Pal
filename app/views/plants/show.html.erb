@@ -6,3 +6,6 @@
 <p>Created: <%= @plant.created_at %></p>
 <p><%= link_to "Edit", edit_plant_path(@plant) %></p>
 <p><%= link_to "Delete Plant Pal", plant_path(@plant), method: :delete, data: {confirm: "Are you sure you want to delete this plant?"} %></p>
+<h3>Notes:</h3>
+<%= render partial: 'plants/note', collection: @plant.notes.reverse %>
+<%= render partial: 'notes/form' %>

@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180901225012) do
+ActiveRecord::Schema.define(version: 20180903005129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.text "content"
+    t.bigint "plant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plant_id"], name: "index_notes_on_plant_id"
+  end
+
+  create_table "plant_categories", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "plant_id"
+    t.index ["category_id"], name: "index_plant_categories_on_category_id"
+    t.index ["plant_id"], name: "index_plant_categories_on_plant_id"
+  end
 
   create_table "plants", force: :cascade do |t|
     t.string "species"
@@ -24,4 +43,7 @@ ActiveRecord::Schema.define(version: 20180901225012) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "notes", "plants"
+  add_foreign_key "plant_categories", "categories"
+  add_foreign_key "plant_categories", "plants"
 end

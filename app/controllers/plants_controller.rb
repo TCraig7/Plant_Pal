@@ -6,6 +6,8 @@ class PlantsController < ApplicationController
   end
 
   def show
+    @note = Note.new
+    @note.plant_id = @plant.id
   end
 
   def new
