@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: 'plants#index'
   resources :plants do
     resources :notes
-  end 
+  end
+  resources :categories
 end

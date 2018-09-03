@@ -5,8 +5,8 @@
 <p>Amount of Sun: <%= @plant.amount_of_sun %></p>
 <p>Created: <%= @plant.created_at %></p>
 <p>Categories:
-  <% @plant.categories.each do |c| %>
-    <%= c.name %>
+  <% @plant.categories.each do |category| %>
+    <%= link_to category.name, category_path(category) %>
   <% end %>
 </p>
 <p><%= link_to "Edit", edit_plant_path(@plant) %></p>

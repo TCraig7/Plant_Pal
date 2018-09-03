@@ -1,0 +1,7 @@
+<h1>Plants in <%= @category.name %> Category</h1>
+
+<ul>
+  <% @category.plants.each do |plant| %>
+    <li><%= link_to plant.species, plant_path(plant) %></li>
+  <% end %>
+</ul>
