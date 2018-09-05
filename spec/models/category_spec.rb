@@ -14,7 +14,8 @@ describe Category, type: :model do
   describe 'instance methods' do
     describe '#to_s' do
       it "turns the names into a string" do
-        plant = Plant.create(species: "Golden Cactus", nickname: "Spike", amount_of_water: 1, amount_of_sun: 3)
+        user = User.create(username: 'tara', password: 'password')
+        plant = user.plants.create(species: "Golden Cactus", nickname: "Spike", amount_of_water: 1, amount_of_sun: 3)
         category1 = plant.categories.create(name: "Sun Loving")
         category2 = plant.categories.create(name: "Guest Room")
 
