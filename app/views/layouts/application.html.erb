@@ -10,6 +10,21 @@
   </head>
 
   <body>
+    <% unless current_user %>
+    <div class='welcome-links'>
+      <p> <%= link_to 'Sign Up', new_user_path %> <%= link_to 'Sign In', login_path %> </p>
+    </div>
+    <% else %>
+      <nav>
+        <div class="container">
+          <ul>
+            <li><%= link_to 'Plants', plants_path %></li>
+            <li><%= link_to 'Categories', categories_path %></li>
+            <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+          </ul>
+        </div>
+      </nav>
+    <% end %>
     <%= yield %>
   </body>
 </html>
