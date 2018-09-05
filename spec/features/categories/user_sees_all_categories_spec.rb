@@ -3,9 +3,11 @@ require 'rails_helper'
 describe 'user sees all categories' do
   describe 'they visit categories_path' do
     before(:each) do
-      @plant = Plant.create(species: 'Philodendron Brasil', nickname: 'Steve', amount_of_water: 2, amount_of_sun: 1)
+      @user = User.create(username: 'tara', password: 'password')
+      @plant = @user.plants.create(species: 'Philodendron Brasil', nickname: 'Steve', amount_of_water: 2, amount_of_sun: 1)
       @category1 = @plant.categories.create(name: "shade loving")
       @category2 = @plant.categories.create(name: "living room")
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     end
 
     it "shows all user categories" do

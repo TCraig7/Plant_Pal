@@ -2,7 +2,7 @@ class PlantsController < ApplicationController
   before_action :set_params, only: [:show, :destroy, :edit, :update]
 
   def index
-    @plants = Plant.all
+    @plants = current_user.plants
   end
 
   def show
@@ -15,7 +15,7 @@ class PlantsController < ApplicationController
   end
 
   def create
-    plant = Plant.new(plant_params)
+    plant = current_user.plants.new(plant_params)
     if plant.save
       flash[:success] = "#{plant.species} added!"
       redirect_to plant_path(plant)
@@ -35,7 +35,7 @@ class PlantsController < ApplicationController
   end
 
   def destroy
-    @plant.destroy
+    current_user.plants.destroy(@plant.id)
     redirect_to plants_path
   end
 

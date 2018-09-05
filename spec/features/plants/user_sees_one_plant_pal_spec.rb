@@ -3,11 +3,14 @@ require 'rails_helper'
 describe 'user sees one plant pal' do
   describe 'user links from plants index page' do
     before(:each) do
-      @plant1 = Plant.create(species: 'Philodendron Brasil', nickname: 'Steve', amount_of_water: 2, amount_of_sun: 1)
+      @user = User.create(username: 'tara', password: 'password')
+      @plant1 = @user.plants.create(species: 'Philodendron Brasil', nickname: 'Steve', amount_of_water: 2, amount_of_sun: 1)
       @note1 = @plant1.notes.create(content: "Needs to be watered every week.")
       @note2 = @plant1.notes.create(content: "Does not like direct sunlight, do not put on windowsill.")
       @category1 = @plant1.categories.create(name: "Sun Loving")
       @category2 = @plant1.categories.create(name: "Guest Room")
+      @stub = allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
     end
 
     it 'should display information for one plant' do
@@ -33,10 +36,11 @@ describe 'user sees one plant pal' do
     end
 
     it "should delete plant when 'delete' is clicked" do
-      plant2 = Plant.create(species: 'Golden Cactus', nickname: 'Spike', amount_of_water: 1, amount_of_sun: 3)
+      plant2 = @user.plants.create(species: 'Golden Cactus', nickname: 'Spike', amount_of_water: 1, amount_of_sun: 3)
 
       visit plant_path(plant2)
       click_link 'Delete'
+      save_and_open_page
 
       expect(current_path).to eq(plants_path)
       expect(page).to have_content(@plant1.species)
