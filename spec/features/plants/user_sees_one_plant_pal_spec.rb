@@ -18,10 +18,6 @@ describe 'user sees one plant pal' do
 
       click_link "More Details"
 
-      # within("#more-details-#{@plant.id}", :visible => false) do
-      #   click_on "More Details"
-      # end
-
       expect(page).to have_content(@plant1.species)
       expect(page).to have_content(@plant1.nickname)
       expect(page).to have_content(@plant1.amount_of_water)
@@ -40,7 +36,6 @@ describe 'user sees one plant pal' do
 
       visit plant_path(plant2)
       click_link 'Delete'
-      save_and_open_page
 
       expect(current_path).to eq(plants_path)
       expect(page).to have_content(@plant1.species)
