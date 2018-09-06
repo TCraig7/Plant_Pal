@@ -1,11 +1,14 @@
-<h1>Your Plants</h1>
+<div class='header'>Your Plants</div>
 <%= link_to "Create a New Plant", new_plant_path %><br>
 <%= link_to "See All Categories", categories_path %>
 
-<% @plants.each do |plant| %>
-  <ul id='plants'>
-    <li>Species: <%= plant.species %></li>
-    <li>Nickname: <%= plant.nickname %></li>
-    <li class="more-details-#{plant.id}"><%= link_to "More Details", plant_path(plant) %></li>
-  </ul>
-<% end %>
+<div class='plants'>
+  <% @plants.each do |plant| %>
+    <ul id='plant'>
+      <li><%= image_tag('monstera_plant.jpg', class: 'plants-image', :align=> "middle") %></li>
+      <li class='plant-name'><strong><%= plant.species %></strong></li>
+      <li class='plant-nickname'>'<%= plant.nickname %>'</li>
+      <li class="more-details-#{plant.id}"><%= link_to "More Details", plant_path(plant) %></li>
+    </ul>
+  <% end %>
+</div>

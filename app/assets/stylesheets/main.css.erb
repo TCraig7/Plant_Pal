@@ -1,6 +1,8 @@
 body {
   font-size: 18px;
   font-family: 'Mukta', sans-serif;
+  margin-left: 15px;
+  text-align: center;
 }
 
 nav {
@@ -35,10 +37,24 @@ nav a:hover {
   color: #000;
 }
 
-h1 {
+.data-table {
+  width: 50%;
+  margin: auto;
+  padding: 5px;
+  border-collapse: collapse;
+}
+
+.data-cell {
+  padding: 10px 0;
+  border-width: 2px 0;
+  border-color: #000;
+}
+
+.header {
   text-align: center;
   font-family: 'Mukta', sans-serif;
-  font-size: 36px;
+  font-size: 3em;
+  margin-top: 15px;
 }
 
 .welcome-img {
@@ -51,4 +67,41 @@ h1 {
   text-align: center;
   padding: 20px;
   font-size: 24px;
+}
+
+.plants {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+ }
+
+ #plant {
+  /* text-align: center; */
+  /* background-color: #f2f2f2; */
+  padding: 40px;
+  width: 150px;;
+  height: 200px;
+  list-style-type: none;
+  text-align: center;
+  border: 1px solid black;
+  box-shadow: 2px 2px 10px grey;
+}
+
+.plants-image {
+  height: 125px;
+  width: 125px;
+  border: 1px solid black;
+}
+
+.plant-name {
+  padding-top: 5px;
+}
+
+.plant-nickname {
+  color: #595959;
+  font-size: 16px;
+}
+
+.category-list {
+  list-style-type: none;
 }
