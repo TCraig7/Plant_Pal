@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :plants do
     resources :notes
   end
-  
+
   resources :categories
   resources :users, only: [:new, :create, :show]
 

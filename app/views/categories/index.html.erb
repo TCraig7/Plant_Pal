@@ -1,7 +1,7 @@
 <h1>All Categories</h1>
 <%= link_to "Back to All Plants", plants_path %>
 
-<% @categories.each do |category| %>
+<% @uc.each do |category| %>
   <ul>
     <li><%= link_to category.name, category_path(category) %></l1>
     <li id="category-delete-<%= category.id %>"><%= link_to "Delete", category_path(category), method: :delete, data: {confirm: "Are you sure you want to delete this category?"} %> </li>

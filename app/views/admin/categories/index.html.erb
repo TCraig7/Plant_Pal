@@ -1,1 +1,8 @@
 <h1>Admin Categories</h1>
+
+<% @categories.each do |category| %>
+  <ul>
+    <li><%= link_to category.name, category_path(category) %>
+    <li id="category-delete-<%= category.id %>"><%= link_to "Delete", category_path(category), method: :delete, data: {confirm: "Are you sure you want to delete this category?"} %> </li>
+  </ul>
+<% end %>
