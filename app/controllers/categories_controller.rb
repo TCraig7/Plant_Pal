@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_params, only: [:show, :destroy]
   def index
-    @categories = Category.all
+    @uc = user_categories
   end
 
   def show

@@ -2,8 +2,9 @@ Plant.destroy_all
 User.destroy_all
 Category.destroy_all
 
-user1 = User.create(username: 'sample1', password: 'password')
-user2 = User.create(username: 'sample2', password: 'password')
+user1 = User.create(username: 'sample1', password: 'password', role: 0)
+user2 = User.create(username: 'sample2', password: 'password', role: 0)
+user3 = User.create(username: 'sample3', password: 'password', role: 1)
 
 plant1 = user1.plants.create(species: 'Philodendron Brasil', nickname: 'Steve', amount_of_water: 2, amount_of_sun: 1)
 note1 = plant1.notes.create(content: "Needs to be watered every week.")

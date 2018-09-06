@@ -6,6 +6,7 @@ describe 'user sees one category' do
       user = User.create(username: 'tara', password: 'password')
       plant = user.plants.create(species: 'Philodendron Brasil', nickname: 'Steve', amount_of_water: 2, amount_of_sun: 1)
       category = plant.categories.create(name: "shade loving")
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit plant_path(plant)
 
@@ -18,6 +19,7 @@ describe 'user sees one category' do
       user = User.create(username: 'tara', password: 'password')
       plant = user.plants.create(species: 'Philodendron Brasil', nickname: 'Steve', amount_of_water: 2, amount_of_sun: 1)
       category = plant.categories.create(name: "shade loving")
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit category_path(category)
 
