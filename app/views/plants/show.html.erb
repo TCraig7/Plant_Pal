@@ -9,8 +9,15 @@
     <%= link_to category.name, category_path(category) %>
   <% end %>
 </p>
-<p><%= link_to "Edit", edit_plant_path(@plant) %></p>
-<p><%= link_to "Delete Plant", plant_path(@plant), method: :delete, data: {confirm: "Are you sure you want to delete this plant?"} %></p>
+<p><%= link_to "Edit Plant", edit_plant_path(@plant) %> <%= link_to "Delete Plant", plant_path(@plant), method: :delete, data: {confirm: "Are you sure you want to delete this plant?"} %></p>
 <h4>Notes:</h4>
-<%= render partial: 'plants/note', collection: @plant.notes.reverse %>
+<table class='data-table'>
+  <thead>
+    <th>Created</th>
+    <th>Content</th>
+  </thead>
+  <tbody>
+    <%= render partial: 'plants/note', collection: @plant.notes.reverse %>
+  </tbody>
+</table>
 <%= render partial: 'notes/form' %>

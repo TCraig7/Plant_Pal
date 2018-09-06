@@ -12,10 +12,10 @@ describe 'user sees all plants' do
     it "shows all user plants" do
       visit plants_path
 
-      expect(page).to have_content("Species: #{@plant_1.species}")
-      expect(page).to have_content("Nickname: #{@plant_1.nickname}")
-      expect(page).to have_content("Species: #{@plant_2.species}")
-      expect(page).to have_content("Nickname: #{@plant_2.nickname}")
+      expect(page).to have_content(@plant_1.species)
+      expect(page).to have_content(@plant_1.nickname)
+      expect(page).to have_content(@plant_2.species)
+      expect(page).to have_content(@plant_2.nickname)
       expect(page).to have_link("More Details")
     end
 
